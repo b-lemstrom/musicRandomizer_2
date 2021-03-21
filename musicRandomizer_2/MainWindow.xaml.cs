@@ -38,5 +38,15 @@ namespace musicRandomizer_2
             GeneratedSongs.ScrollToEnd();
         }
 
+        private void SaveGeneratedSongs_OnClick(object sender, RoutedEventArgs e)
+        {
+            _appSession.SavePlayList();
+        }
+
+        private void Exit_OnClick(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+
     }
 }

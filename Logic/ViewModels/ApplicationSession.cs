@@ -2,6 +2,7 @@
 using Logic.EventArgs;
 using Microsoft.Win32;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Windows;
 
@@ -22,6 +23,7 @@ namespace Logic.ViewModels
         }
 
         public string[] lines;
+        public List<string> generatedSongs = new List<string>();
         public ApplicationSession()
         {
             CurrentPlayList = new PlayList
@@ -92,7 +94,7 @@ namespace Logic.ViewModels
             {
                 int y = lines.Length;
                 int x = rnd.Next(1, y);
-                //Here we do check, because the structure of a playlistfile gives us the filepath on every other line.
+                //Here we do a check, because the structure of a playlistfile gives us the filepath on every other line.
                 while (x % 2 == 0)
                 {
                     x = rnd.Next(1, y);
@@ -102,7 +104,21 @@ namespace Logic.ViewModels
                 second = second.Replace("#EXTINF:", "");
                 second = second.Remove(0, 4);
                 CurrentPlayList.LastSong = second;
+                generatedSongs.Add(second);
+
                 RaiseMessage(second);
+            }
+        }
+
+        public void SavePlayList()
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "Text file|*.txt";
+            saveFileDialog.Title = "Save Playlist";
+
+            if (saveFileDialog.ShowDialog() == true)
+            {
+                File.WriteAllLines(saveFileDialog.FileName, generatedSongs);
             }
         }
 
