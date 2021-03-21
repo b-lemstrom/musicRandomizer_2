@@ -22,7 +22,7 @@
         <Menu Grid.Row="0" Grid.Column="0"
               Grid.ColumnSpan="2"
               FontSize="11pt"
-              Background="BurlyWood">
+              Background="#de894d">
             <MenuItem Header="File">
                 <MenuItem Header="Save generated songs"
                           Click="SaveGeneratedSongs_OnClick"/>
@@ -30,17 +30,14 @@
                 <MenuItem Header="Exit"
                           Click="Exit_OnClick"/>
             </MenuItem>
-            <MenuItem Header="Help">
-                <MenuItem Header="Help"
-                          IsEnabled="False"/>
-                <Separator/>
+            <MenuItem Header="About">
                 <MenuItem Header="About"
-                          IsEnabled="False"/>
+                          Click="About_Click"/>
             </MenuItem>
         </Menu>
         
         <!-- Controls -->
-        <Grid Grid.Row="1" Grid.Column="0" Background="LightSteelBlue">
+        <Grid Grid.Row="1" Grid.Column="0" Background="#4d79de">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
@@ -79,7 +76,7 @@
         <!-- Generated songs -->
         <Border Grid.Row="1" Grid.Column="1">
             <RichTextBox x:Name="GeneratedSongs"
-                             Background="ForestGreen"
+                             Background="#4d79de"
                              VerticalScrollBarVisibility="Auto">
                 <RichTextBox.Resources>
                     <Style TargetType="{x:Type Paragraph}">

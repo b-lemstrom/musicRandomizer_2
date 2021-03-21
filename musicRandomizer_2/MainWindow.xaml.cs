@@ -48,5 +48,9 @@ namespace musicRandomizer_2
             Close();
         }
 
+        private void About_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Tool to randomly generate songs from a playlist file.");
+        }
     }
 }
